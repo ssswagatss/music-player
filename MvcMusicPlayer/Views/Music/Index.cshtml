@@ -1,49 +1,59 @@
-﻿
+﻿@model MvcMusicPlayer.Models.SongViewModel
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Player";
 }
 
-<div class="container-music-player">
-    <div class="player">
-        <div class="like waves-effect waves-light">
-            <i class="icon-heart"></i>
-        </div>
-        <div class="mask"></div>
-        <ul class="player-info info-one">
-            <li>Rock'n'Roll Nerd</li>
-            <li>Tim Minchin</li>
-            <li>5:34</li>
-        </ul>
-        <ul class="player-info info-two">
-            <li>Rock'n'Roll Nerd</li>
-            <li>Tim Minchin</li>
-            <li><span id="duration"></span><i> / </i>5:34</li>
-        </ul>
-        <div id="play-button" class="unchecked">
-            <i class="icon icon-play"></i>
-        </div>
-        <div class="control-row">
-            <div class="waves-animation-one"></div>
-            <div class="waves-animation-two"></div>
-            <div id="pause-button">
-                <i class="icon"></i>
+@if (Model != null)
+{
+    <div class="container-music-player">
+        <div class="player">
+            <div class="like waves-effect waves-light">
+                <i class="icon-heart"></i>
             </div>
-            <div class="seek-field">
-                <input id="audioSeekBar" min="0" max="334" step="1" value="0" type="range" oninput="audioSeekBar()" onchange="this.oninput()">
+            <div class="mask"></div>
+            <ul class="player-info info-one">
+                <li>@Model.CurrentlyPlayingSong.SongName</li>
+                <li>@string.Join(", ", Model.CurrentlyPlayingSong.Singers)</li>
+                <li>@Model.CurrentlyPlayingSong.GetDurationString()</li>
+            </ul>
+            <ul class="player-info info-two">
+                <li>@Model.CurrentlyPlayingSong.SongName</li>
+                <li>@string.Join(", ", Model.CurrentlyPlayingSong.Singers)</li>
+                <li><span id="duration"></span><i> / </i>@Model.CurrentlyPlayingSong.GetDurationString()</li>
+            </ul>
+            <div id="play-button" class="unchecked">
+                <i class="icon icon-play"></i>
             </div>
-            <div class="volume-icon">
-                <i class="icon-volume-up"></i>
-            </div>
-            <div class="volume-field">
-                <input type="range" min="0" max="100" value="100" step="1" oninput="audio.volume = this.value/100" onchange="this.oninput()">
+            <div class="control-row">
+                <div class="waves-animation-one"></div>
+                <div class="waves-animation-two"></div>
+                <div id="pause-button">
+                    <i class="icon"></i>
+                </div>
+                <div class="seek-field">
+                    <input id="audioSeekBar" min="0" max="@Model.CurrentlyPlayingSong.Duration" step="1" value="0" type="range" oninput="audioSeekBar()" onchange="this.oninput()">
+                </div>
+                <div class="volume-icon">
+                    <i class="icon-volume-up"></i>
+                </div>
+                <div class="volume-field">
+                    <input type="range" min="0" max="100" value="100" step="1" oninput="audio.volume = this.value/100" onchange="this.oninput()">
+                </div>
             </div>
         </div>
     </div>
-</div>
-<audio id="audio-player" ontimeupdate="SeekBar()" ondurationchange="CreateSeekBar()" preload="auto" loop>
-    <source src="https://michael-zhigulin.github.io/mz-codepen-projects/Material%20Design%20UI%20Audio%20Player/audio/Tim%20Minchin%20%E2%80%94%20Rock%20n%20Roll%20Nerd.ogg" type="audio/ogg">
-    <source src="https://michael-zhigulin.github.io/mz-codepen-projects/Material%20Design%20UI%20Audio%20Player/audio/Tim%20Minchin%20%E2%80%94%20Rock%20n%20Roll%20Nerd.mp3" type="audio/mpeg">
-</audio>
+    <audio id="audio-player" ontimeupdate="SeekBar()" ondurationchange="CreateSeekBar()" preload="auto" loop>
+        <source src="@Url.Content(Model.CurrentlyPlayingSong.Path)" type="audio/mpeg">
+    </audio>
+}
+else
+{
+    <div class="alert alert-danger">
+        <strong>No Songs Found!</strong>
+    </div>
+}
+
+
 @section scripts{
     @Scripts.Render("~/bundles/music-player")
 }

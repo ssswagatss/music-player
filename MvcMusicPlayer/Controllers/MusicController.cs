@@ -1,8 +1,5 @@
 ﻿using MvcMusicPlayer.Models;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace MvcMusicPlayer.Controllers
@@ -10,10 +7,25 @@ namespace MvcMusicPlayer.Controllers
     public class MusicController : Controller
     {
         // GET: Music
-        public ActionResult Index()
+        public ActionResult Index(int? id)
         {
+            var songsVM = new SongViewModel();
             var allSongs = Song.GetSongs();
-            return View();
+            if (allSongs != null && allSongs.Any())
+            {
+                if (id.HasValue && allSongs.Any(x => x.SongId == id.Value))
+                {
+                    songsVM.CurrentlyPlayingSong = allSongs.First(x => x.SongId == id.Value);
+                    songsVM.OtherAvailableSongs.AddRange(allSongs.Where(x => x.SongId != id.Value));
+                }
+                else
+                {
+                    songsVM.CurrentlyPlayingSong = allSongs.ElementAt(0);
+                    songsVM.OtherAvailableSongs.AddRange(allSongs.Skip(1));
+                }
+            }
+
+            return View(songsVM);
         }
 
         // GET: Music/Details/5

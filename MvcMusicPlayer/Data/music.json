@@ -5,7 +5,8 @@
     "SongName": "Lo maan liya",
     "Year": "2016",
     "Singers": [ "Arijit Singh" ],
-    "Path": "2016\\RaazReboot\\lo-maan-liya-(Muskurahat.Com).mp3"
+    "Path": "2016\\RaazReboot\\lo-maan-liya-(Muskurahat.Com).mp3",
+    "Duration": 300
   },
   {
     "SongId": 2,
@@ -13,7 +14,8 @@
     "SongName": "Darmiyan",
     "Year": "2012",
     "Singers": [ "Shafqat Amanat Ali", "Clinton Cerejo" ],
-    "Path": "2012\\Jodi Breakers\\darmiyan.mp3"
+    "Path": "2012\\Jodi Breakers\\darmiyan.mp3",
+    "Duration": 371
   },
   {
     "SongId": 3,
@@ -21,6 +23,7 @@
     "SongName": "Kya mujhe pyaar hai",
     "Year": "2006",
     "Singers": [ "KK" ],
-    "Path": "2006\\Woh Lamhe\\Kya-Mujhe-Pyaar-hai.mp3"
+    "Path": "2006\\Woh Lamhe\\Kya-Mujhe-Pyaar-hai.mp3",
+    "Duration": 148
   }
 ]
