@@ -1,8 +1,26 @@
 [
   {
+    "SongId": 1,
     "MovieName": "Raaz Reboot",
+    "SongName": "Lo maan liya",
     "Year": "2016",
     "Singers": [ "Arijit Singh" ],
     "Path": "2016\\RaazReboot\\lo-maan-liya-(Muskurahat.Com).mp3"
+  },
+  {
+    "SongId": 2,
+    "MovieName": "Jodi Breakers",
+    "SongName": "Darmiyan",
+    "Year": "2012",
+    "Singers": [ "Shafqat Amanat Ali", "Clinton Cerejo" ],
+    "Path": "2012\\Jodi Breakers\\darmiyan.mp3"
+  },
+  {
+    "SongId": 3,
+    "MovieName": "Woh Lamhe",
+    "SongName": "Kya mujhe pyaar hai",
+    "Year": "2006",
+    "Singers": [ "KK" ],
+    "Path": "2006\\Woh Lamhe\\Kya-Mujhe-Pyaar-hai.mp3"
   }
 ]

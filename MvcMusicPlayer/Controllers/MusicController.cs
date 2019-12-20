@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MvcMusicPlayer.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,6 +12,7 @@ namespace MvcMusicPlayer.Controllers
         // GET: Music
         public ActionResult Index()
         {
+            var allSongs = Song.GetSongs();
             return View();
         }
 
