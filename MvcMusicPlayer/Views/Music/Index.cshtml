@@ -40,7 +40,18 @@
                     <input type="range" min="0" max="100" value="100" step="1" oninput="audio.volume = this.value/100" onchange="this.oninput()">
                 </div>
             </div>
+            <div class="list-group">
+                <a href="#" class="list-group-item list-group-item-action active">
+                    <strong>Other Available songs</strong>
+                </a>
+                @foreach (var song in Model.OtherAvailableSongs)
+                {
+                    <a href="@Url.Action("Index","Music",new { id=song.SongId})" class="list-group-item list-group-item-action">@song.SongName <span class="float-right">@song.GetDurationString()</span></a>
+                }
+
+            </div>
         </div>
+
     </div>
     <audio id="audio-player" ontimeupdate="SeekBar()" ondurationchange="CreateSeekBar()" preload="auto" loop>
         <source src="@Url.Content(Model.CurrentlyPlayingSong.Path)" type="audio/mpeg">
