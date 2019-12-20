@@ -1,5 +1,4 @@
-﻿using System.Web;
-using System.Web.Optimization;
+﻿using System.Web.Optimization;
 
 namespace MvcMusicPlayer
 {
@@ -8,6 +7,11 @@ namespace MvcMusicPlayer
         // For more information on bundling, visit https://go.microsoft.com/fwlink/?LinkId=301862
         public static void RegisterBundles(BundleCollection bundles)
         {
+#if DEBUG
+            BundleTable.EnableOptimizations = false;
+#else
+            BundleTable.EnableOptimizations = true;
+#endif
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/jquery-{version}.js"));
 
@@ -22,8 +26,14 @@ namespace MvcMusicPlayer
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
                       "~/Scripts/bootstrap.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/music-player").Include(
+                      "~/Scripts/waves.js",
+                      "~/Scripts/Site/music-player.js"));
+
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
+                      "~/Content/waves.css",
+                      "~/Content/material-fonts.css",
                       "~/Content/site.css"));
         }
     }
