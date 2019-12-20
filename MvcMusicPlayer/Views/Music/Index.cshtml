@@ -46,7 +46,7 @@
                 </a>
                 @foreach (var song in Model.OtherAvailableSongs)
                 {
-                    <a href="@Url.Action("Index","Music",new { id=song.SongId})" class="list-group-item list-group-item-action">@song.SongName <span class="float-right">@song.GetDurationString()</span></a>
+                    <a href="@Url.Action("Index","Music",new { id=song.SongId})" class="list-group-item list-group-item-action"><i class="icon icon-play"></i> @song.SongName <span class="float-right">@song.GetDurationString()</span></a>
                 }
 
             </div>
