@@ -63,8 +63,13 @@ $(document).ready(function () {
     $(".like").click(function () {
         $(".icon-heart").toggleClass("like-active");
     });
-});
 
+    setTimeout(function () {
+        console.log("Settimeout called");
+        $("#play-button").trigger('click');   
+    }, 100);
+
+});
 function CreateSeekBar() {
     var seekbar = document.getElementById("audioSeekBar");
     seekbar.min = 0;

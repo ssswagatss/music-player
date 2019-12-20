@@ -16,12 +16,12 @@ namespace MvcMusicPlayer.Controllers
                 if (id.HasValue && allSongs.Any(x => x.SongId == id.Value))
                 {
                     songsVM.CurrentlyPlayingSong = allSongs.First(x => x.SongId == id.Value);
-                    songsVM.OtherAvailableSongs.AddRange(allSongs.Where(x => x.SongId != id.Value));
+                    songsVM.OtherAvailableSongs.AddRange(allSongs);
                 }
                 else
                 {
                     songsVM.CurrentlyPlayingSong = allSongs.ElementAt(0);
-                    songsVM.OtherAvailableSongs.AddRange(allSongs.Skip(1));
+                    songsVM.OtherAvailableSongs.AddRange(allSongs);
                 }
             }
 
