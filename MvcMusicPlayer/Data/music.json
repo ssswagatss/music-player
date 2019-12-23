@@ -25,5 +25,23 @@
     "Singers": [ "KK" ],
     "Path": "2006\\Woh Lamhe\\Kya-Mujhe-Pyaar-hai.mp3",
     "Duration": 148
+  },
+  {
+    "SongId": 4,
+    "MovieName": "Kis Kisko Pyaar Karoon",
+    "SongName": "Samandar",
+    "Year": "2015",
+    "Singers": [ "Shreya Ghoshal", "Jubin Nautiyal" ],
+    "Path": "2015\\Kis Kisko Pyaar Karoon\\03 Samandar (Kis Kisko Pyaar Karoon).mp3",
+    "Duration": 324
+  },
+  {
+    "SongId": 5,
+    "MovieName": "Dream Gir",
+    "SongName": "Ik Mulaqaat",
+    "Year": "2019",
+    "Singers": [ "Meet Bros" ],
+    "Path": "2019\\Dream Girl\\Ik Mulaqaat - Dream Girl 320 Kbps.mp3",
+    "Duration": 324
   }
 ]

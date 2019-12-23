@@ -44,16 +44,16 @@
                 <a href="#" class="list-group-item list-group-item-action active">
                     <strong>Other Available songs</strong>
                 </a>
+            </div>
+            <div class="list-group">
                 @foreach (var song in Model.OtherAvailableSongs)
                 {
-                    <a href="@Url.Action("Index","Music",new { id=song.SongId})" class="list-group-item list-group-item-action"><i class="icon icon-play"></i> @song.SongName <span class="float-right">@song.GetDurationString()</span></a>
+                    <a href="@Url.Action("Index","Music",new { id=song.SongId})" data-song-id="@song.SongId" class="js-available-song-list list-group-item list-group-item-action @(song.SongId==Model.CurrentlyPlayingSong.SongId ? "active":"")"><i class="icon icon-play"></i> @song.SongName <span class="float-right">@song.GetDurationString()</span></a>
                 }
-
             </div>
         </div>
-
     </div>
-    <audio id="audio-player" ontimeupdate="SeekBar()" ondurationchange="CreateSeekBar()" preload="auto" loop>
+    <audio id="audio-player" ontimeupdate="SeekBar()" ondurationchange="CreateSeekBar()" preload="auto" onended="EndofAudio()">
         <source src="@Url.Content(Model.CurrentlyPlayingSong.Path)" type="audio/mpeg">
     </audio>
 }

@@ -63,10 +63,10 @@ $(document).ready(function () {
     $(".like").click(function () {
         $(".icon-heart").toggleClass("like-active");
     });
-
+    
     setTimeout(function () {
         console.log("Settimeout called");
-        $("#play-button").trigger('click');   
+        $("#play-button").trigger('click');
     }, 100);
 
 });
@@ -79,6 +79,8 @@ function CreateSeekBar() {
 
 function EndofAudio() {
     document.getElementById("audioSeekBar").value = 0;
+    console.log("audio ended:", $(audio));
+    playTheNextAudio();
 }
 
 function audioSeekBar() {
@@ -97,6 +99,19 @@ audio.addEventListener("timeupdate", function () {
     var m = parseInt((audio.currentTime / 60) % 60);
     duration.innerHTML = m + ':' + s;
 }, false);
+
+function playTheNextAudio() {
+    var allSongs = $('.js-available-song-list');
+    var currentlyPlayingAudio = 0;
+    allSongs.each(function (i, item) {
+        if ($(item).hasClass("active")) {
+            currentlyPlayingAudio = i;
+        }
+    });
+    if (currentlyPlayingAudio + 1 < allSongs.length)
+        currentlyPlayingAudio = currentlyPlayingAudio + 1;
+    window.location = $($('.js-available-song-list')[currentlyPlayingAudio]).attr('href');
+}
 
 Waves.init();
 Waves.attach("#play-button", ["waves-button", "waves-float"]);
