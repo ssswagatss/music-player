@@ -82,10 +82,10 @@ $(document).ready(function () {
     if (localStorage.getItem("audio")) {
         var audioData = localStorage.getObject("audio");
         console.log("audioData", audioData);
-        audio.volume = audioData.volume;
+        $("#volumeSeekBar").val(audioData.volume).trigger('change');
     } else {
-        audio.volume = 0.7;
-        localStorage.setObject("audio", { volume: 0.7 });
+        $("#volumeSeekBar").val(70).trigger('change');
+        localStorage.setObject("audio", { volume: 70 });
     }
 
 
@@ -121,7 +121,7 @@ audio.addEventListener("timeupdate", function () {
 }, false);
 
 audio.addEventListener("volumechange", function () {
-    localStorage.setObject("audio", { volume: this.volume });
+    localStorage.setObject("audio", { volume: this.volume * 100 });
     console.log("Volume Change detected", this);
 });
 function playTheNextAudio() {

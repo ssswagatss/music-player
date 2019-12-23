@@ -37,7 +37,7 @@
                     <i class="icon-volume-up"></i>
                 </div>
                 <div class="volume-field">
-                    <input type="range" min="0" max="100" value="100" step="1" oninput="audio.volume = this.value/100" onchange="this.oninput()">
+                    <input id="volumeSeekBar" type="range" min="0" max="100" value="100" step="1" oninput="audio.volume = this.value/100" onchange="this.oninput()">
                 </div>
             </div>
             <div class="list-group">
