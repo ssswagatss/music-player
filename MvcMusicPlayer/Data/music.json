@@ -43,5 +43,14 @@
     "Singers": [ "Meet Bros" ],
     "Path": "2019\\Dream Girl\\Ik Mulaqaat - Dream Girl 320 Kbps.mp3",
     "Duration": 324
+  },
+  {
+    "SongId": 6,
+    "MovieName": "Marjaavaan",
+    "SongName": "Ek Toh Kum Zindagani",
+    "Year": "2019",
+    "Singers": [ "Neha Kakkar", "Yash Narvekar" ],
+    "Path": "2019\\Marjaavaan\\Ek-Toh-Kum-Zindagani-b-Marjaavaan-(pagalworldsongs.co.in).mp3",
+    "Duration": 190
   }
 ]
