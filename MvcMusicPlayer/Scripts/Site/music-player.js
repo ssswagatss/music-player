@@ -1,5 +1,15 @@
 ﻿var audio = document.getElementById("audio-player");
 
+Storage.prototype.setObject = function (key, value) {
+    this.setItem(key, JSON.stringify(value));
+};
+
+Storage.prototype.getObject = function (key) {
+    var value = this.getItem(key);
+    return value && JSON.parse(value);
+};
+
+
 $(document).ready(function () {
     $("#play-button").click(function () {
         if ($(this).hasClass("unchecked")) {
@@ -63,11 +73,21 @@ $(document).ready(function () {
     $(".like").click(function () {
         $(".icon-heart").toggleClass("like-active");
     });
-    
+
     setTimeout(function () {
         console.log("Settimeout called");
         $("#play-button").trigger('click');
     }, 100);
+
+    if (localStorage.getItem("audio")) {
+        var audioData = localStorage.getObject("audio");
+        console.log("audioData", audioData);
+        audio.volume = audioData.volume;
+    } else {
+        audio.volume = 0.7;
+        localStorage.setObject("audio", { volume: 0.7 });
+    }
+
 
 });
 function CreateSeekBar() {
@@ -100,6 +120,10 @@ audio.addEventListener("timeupdate", function () {
     duration.innerHTML = m + ':' + s;
 }, false);
 
+audio.addEventListener("volumechange", function () {
+    localStorage.setObject("audio", { volume: this.volume });
+    console.log("Volume Change detected", this);
+});
 function playTheNextAudio() {
     var allSongs = $('.js-available-song-list');
     var currentlyPlayingAudio = 0;
