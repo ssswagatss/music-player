@@ -134,6 +134,8 @@ function playTheNextAudio() {
     });
     if (currentlyPlayingAudio + 1 < allSongs.length)
         currentlyPlayingAudio = currentlyPlayingAudio + 1;
+    else
+        currentlyPlayingAudio = 0;
     window.location = $($('.js-available-song-list')[currentlyPlayingAudio]).attr('href');
 }
 
