@@ -52,5 +52,32 @@
     "Singers": [ "Neha Kakkar", "Yash Narvekar" ],
     "Path": "2019\\Marjaavaan\\Ek-Toh-Kum-Zindagani-b-Marjaavaan-(pagalworldsongs.co.in).mp3",
     "Duration": 190
+  },
+  {
+    "SongId": 7,
+    "MovieName": "Love Aaj Kal",
+    "SongName": "Ye Dooriyan",
+    "Year": "2009",
+    "Singers": [ "Mohit Chauhan" ],
+    "Path": "2009\\Love Aaj Kal\\Ye Dooriyan  From Love Aaj Kal -(Mr-Jatt.com).mp3",
+    "Duration": 190
+  },
+  {
+    "SongId": 8,
+    "MovieName": "Four More Shots Please!",
+    "SongName": "Yaara Teri Yaari",
+    "Year": "2019",
+    "Singers": [ "Darshan Raval" ],
+    "Path": "2019\\Four More Shots Please\\Yaara Teri Yaari - Darshan Raval.mp3",
+    "Duration": 190
+  },
+  {
+    "SongId": 9,
+    "MovieName": "Marjaavaan",
+    "SongName": "Tum Hi Aana",
+    "Year": "2019",
+    "Singers": [ "Jubin Nautiyal" ],
+    "Path": "2019\\Marjaavaan\\Tum-Hi-Aana-b-Marjaavaan-(pagalworldsongs.co.in).mp3",
+    "Duration": 190
   }
 ]
